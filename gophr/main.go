@@ -4,6 +4,8 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"gophr/v1"
+	"gophr/v2"
 	"log"
 	"net/http"
 	"os"
@@ -42,13 +44,18 @@ func main() {
 	unsecureRouter.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
 	unsecureRouter.HandleFunc("/", HomeViewHandler)
 
-	apiRouter := router.PathPrefix("/api/v1/").Subrouter()
-	apiRouter.Use(AuthenticateMiddleware)
-	apiRouter.HandleFunc("/test", func(writer http.ResponseWriter, request *http.Request) {
-	})
+	apiRouter := router.PathPrefix("/api").Subrouter()
 
+	// API version 1
+	apiRouterV1 := v1.RegisterHandlers(apiRouter)
+	apiRouterV1.Use(AuthenticateMiddleware)
+
+	// API version 2
+	v2.RegisterHandlers(apiRouter)
 
 	addr := fmt.Sprintf("%s:%s", host, port)
+
+	// Graceful shutdown
 	done := make(chan bool, 1)
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, os.Interrupt, os.Kill, syscall.SIGTERM)
