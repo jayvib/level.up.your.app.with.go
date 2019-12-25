@@ -11,3 +11,10 @@ func LoggingMiddleware(h http.Handler) http.Handler {
 		h.ServeHTTP(w, r)
 	})
 }
+
+func AuthenticateMiddleware(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+		w.WriteHeader(http.StatusUnauthorized)
+		RenderTemplate(w, r, "others/unauthorized", nil)
+	})
+}

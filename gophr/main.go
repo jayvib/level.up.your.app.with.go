@@ -38,11 +38,17 @@ func main() {
 	router := mux.NewRouter()
 
 	router.Use(LoggingMiddleware)
-	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
-	router.HandleFunc("/", HomeViewHandler)
+	unsecureRouter := router.PathPrefix("/").Subrouter()
+	unsecureRouter.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
+	unsecureRouter.HandleFunc("/", HomeViewHandler)
+
+	apiRouter := router.PathPrefix("/api/v1/").Subrouter()
+	apiRouter.Use(AuthenticateMiddleware)
+	apiRouter.HandleFunc("/test", func(writer http.ResponseWriter, request *http.Request) {
+	})
+
 
 	addr := fmt.Sprintf("%s:%s", host, port)
-
 	done := make(chan bool, 1)
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, os.Interrupt, os.Kill, syscall.SIGTERM)

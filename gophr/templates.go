@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"sync"
 )
 
 // both templats/index/home.html and templates/foo/bar/baz.html will match
@@ -31,6 +32,8 @@ var errorTemplate = `
 		<p>%s</p>
 	</body>
 </html>`
+
+var pool = sync.Pool{}
 
 func RenderTemplate(w http.ResponseWriter, r *http.Request, name string, data interface{}) {
 
