@@ -1,11 +1,19 @@
-APPNAME=gophr
+APPNAME=gophr.linux
 
-build:
+build: mod
 	go build -o ${APPNAME}
 
-run: build
-	./${APPNAME}
+mod:
+	go mod download
 
 fmt:
 	go fmt ./...
+
+docker:
+	sudo docker build -t gophr .
+
+run: docker
+	docker-compose up -d
+
+.PHONY: run build mod fmt docker
 

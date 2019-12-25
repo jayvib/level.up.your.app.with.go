@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+    gophr:
+        image: gophr:latest
+        container_name: gophr.api
+        ports:
+            - 8080:8080
+        restart: always        
+

@@ -1,17 +1,25 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
 	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
+	"github.com/gorilla/mux"
 	"github.com/jayvib/golog"
 )
 
 var port string
 var host string
 var debug bool
+
+const AppName = "Gophr"
 
 func init() {
 	flag.StringVar(&port, "port", "8080", "Port of the application")
@@ -27,11 +35,48 @@ func init() {
 }
 
 func main() {
-	mux := http.NewServeMux()
-	mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
+	router := mux.NewRouter()
+
+	router.Use(LoggingMiddleware)
+	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
+	router.HandleFunc("/", HomeViewHandler)
+
 	addr := fmt.Sprintf("%s:%s", host, port)
+
+	done := make(chan bool, 1)
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, os.Interrupt, os.Kill, syscall.SIGTERM)
+
+	// Server
+	server := &http.Server{
+		Addr:         addr,
+		Handler:      router,
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
+		IdleTimeout:  15 * time.Second,
+	}
+
+	go gracefulShutdown(server, quit, done)
+
 	golog.Info("Listening in ", addr)
-	if err := http.ListenAndServe(addr, mux); err != nil {
+	if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed{
 		log.Fatal(err)
 	}
+
+	<-done
+	golog.Info("Server stopped")
+}
+
+func gracefulShutdown(server *http.Server, quit <-chan os.Signal, done chan<- bool) {
+	<-quit
+	golog.Warning("Server is shutting down...")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 30 * time.Second)
+	defer cancel()
+
+	server.SetKeepAlivesEnabled(false)
+	if err := server.Shutdown(ctx); err != nil {
+		golog.Fatal("Could not gracefully shutdown the server: %v\n", err)
+	}
+	close(done)
 }
