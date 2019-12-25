@@ -1,12 +1,14 @@
-package main
+package view
 
 import (
 	"bytes"
 	"fmt"
+	"github.com/gorilla/mux"
 	"html/template"
 	"net/http"
-	"sync"
 )
+
+var AppName = "Gophr"
 
 // both templats/index/home.html and templates/foo/bar/baz.html will match
 // the glob, but templates/test.html won't as the ath needs at least one
@@ -33,7 +35,13 @@ var errorTemplate = `
 	</body>
 </html>`
 
-var pool = sync.Pool{}
+func RegisterHandlers(r *mux.Router) *mux.Router {
+	subrouter := r.PathPrefix("/").Subrouter()
+	subrouter.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
+	subrouter.HandleFunc("/", HomeViewHandler).Methods(http.MethodGet)
+	subrouter.HandleFunc("/register", UserNewViewHandler).Methods(http.MethodGet)
+	return subrouter
+}
 
 func RenderTemplate(w http.ResponseWriter, r *http.Request, name string, data interface{}) {
 
@@ -62,3 +70,4 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, name string, data in
 func HomeViewHandler(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, r, "index/home", map[string]string{"title": AppName})
 }
+

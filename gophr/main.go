@@ -4,8 +4,10 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"gophr/v1"
-	"gophr/v2"
+	"gophr/api/v1"
+	"gophr/api/v2"
+	"gophr/middleware"
+	"gophr/view"
 	"log"
 	"net/http"
 	"os"
@@ -39,16 +41,14 @@ func init() {
 func main() {
 	router := mux.NewRouter()
 
-	router.Use(LoggingMiddleware)
-	unsecureRouter := router.PathPrefix("/").Subrouter()
-	unsecureRouter.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
-	unsecureRouter.HandleFunc("/", HomeViewHandler)
+	router.Use(middleware.LoggingMiddleware)
+	view.RegisterHandlers(router)
 
 	apiRouter := router.PathPrefix("/api").Subrouter()
 
 	// API version 1
 	apiRouterV1 := v1.RegisterHandlers(apiRouter)
-	apiRouterV1.Use(AuthenticateMiddleware)
+	apiRouterV1.Use(middleware.AuthenticateMiddleware)
 
 	// API version 2
 	v2.RegisterHandlers(apiRouter)

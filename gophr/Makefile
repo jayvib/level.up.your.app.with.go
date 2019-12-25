@@ -1,7 +1,7 @@
 APPNAME=gophr.linux
 
 build: mod
-	go build -o ${APPNAME}
+	go build -race -o ${APPNAME}
 
 mod:
 	go mod download
