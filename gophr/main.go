@@ -4,7 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"gophr/api/v1"
+	"gophr/api/v1/user/web"
 	"gophr/api/v2"
 	"gophr/middleware"
 	"gophr/view"
@@ -47,7 +47,7 @@ func main() {
 	apiRouter := router.PathPrefix("/api").Subrouter()
 
 	// API version 1
-	apiRouterV1 := v1.RegisterHandlers(apiRouter); _ = apiRouterV1
+	apiRouterV1 := web.RegisterHandlers(apiRouter); _ = apiRouterV1
 	//apiRouterV1.Use(middleware.AuthenticateMiddleware)
 
 	// API version 2

@@ -15,7 +15,7 @@ docker:
 run-step: run clean
 
 run: docker
-	docker-compose up -d
+	docker-compose up -d --no-deps
 
 start:
 	docker-compose start
