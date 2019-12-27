@@ -5,5 +5,9 @@ services:
         container_name: gophr.api
         ports:
             - 8080:8080
+        volumes:
+            - ./assets:/gophr/assets
+            - ./templates:/gophr/templates
         restart: always        
+        network_mode: host
 

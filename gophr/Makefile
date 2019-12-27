@@ -1,7 +1,7 @@
 APPNAME=gophr.linux
 
 build: mod
-	go build -race -o ${APPNAME}
+	go build -o ${APPNAME}
 
 mod:
 	go mod download
@@ -12,8 +12,22 @@ fmt:
 docker:
 	sudo docker build -t gophr .
 
+run-step: run clean
+
 run: docker
 	docker-compose up -d
 
-.PHONY: run build mod fmt docker
+start:
+	docker-compose start
+
+stop:
+	docker-compose stop
+
+down:
+	docker-compose down
+
+clean:
+	sudo docker image prune -af
+
+.PHONY: run build mod fmt docker clean down
 

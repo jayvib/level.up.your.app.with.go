@@ -18,12 +18,12 @@ FROM alpine:latest
 RUN apk update && apk upgrade && \
     apk --update --no-cache add tzdata && \
     apk add --no-cache bash && \
-    mkdir /app
+    mkdir /gophr
 
 WORKDIR /gophr
 
 EXPOSE 8080
 
-COPY --from=builder /go/src/github.com/jayvib/gophr/engine.linux /gophr
+COPY --from=builder /go/src/github.com/jayvib/gophr/gophr.linux /gophr
 
 CMD ["/gophr/gophr.linux"]
