@@ -10,5 +10,17 @@
 		"username": "jayson.vibandor",
 		"email": "jayson.vibandor@gmail.comdfa",
 		"password": "$2a$10$hR5EQ4Pa4OxGpoJ5OE5lKOw5.F7UWLEJ8C7VAKflqVH3vjmyNB29q"
+	},
+	"bo2omnmacl2qoicm95p0": {
+		"id": "bo2omnmacl2qoicm95p0",
+		"username": "jayson.vibandor2",
+		"email": "jayson.vibandor2@gmail.com",
+		"password": "$2a$10$LY.OvA1WEZbtSoLAfg6x..C989OjA2cPTnnTk14wAi/L6CT0TQ8zm"
+	},
+	"bo2oncmacl2qoicm95qg": {
+		"id": "bo2oncmacl2qoicm95qg",
+		"username": "jayson.vibandor3",
+		"email": "jayson.vibandor3@gmail.com",
+		"password": "$2a$10$JWL.k.qFftWp0OxhQtek3ujSQr/6PqAd.OY6M.HJaPU7mU3R4r4Pe"
 	}
 }
