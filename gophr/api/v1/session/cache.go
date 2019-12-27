@@ -1,12 +1,11 @@
 package session
 
 import (
-	"gophr/model"
 	"time"
 )
 
 type Cache interface {
-	Set(id string, sess *model.Session, duration time.Duration) error
-	Get(id string) (*model.Session, error)
+	Set(id string, sess *Session, duration time.Duration) error
+	Get(id string) (*Session, error)
 	Delete(id string) error
 }

@@ -8,7 +8,6 @@ import (
 	"gophr/model"
 	"gophr/view"
 	"net/http"
-	"time"
 )
 
 func New(svc user.Service, cache session.Cache) *Handler {
@@ -53,10 +52,10 @@ func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	session := model.NewSession(w)
-	session.UserID = usr.ID
+	sess := session.NewSession(w)
+	sess.UserID = usr.ID
 
-	err = h.sessionCache.Set(session.ID, session, model.SessionDuration*time.Second)
+	err = h.sessionCache.Set(sess.ID, sess, session.Duration*60*60) // 8 hours in seconds
 	if err != nil {
 		view.RenderTemplate(w, r, "users/new", map[string]interface{}{
 			"Error": err.Error(),

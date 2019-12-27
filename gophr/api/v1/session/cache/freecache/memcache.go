@@ -3,7 +3,8 @@ package freecache
 import (
 	"encoding/json"
 	"github.com/coocood/freecache"
-	"gophr/model"
+	"gophr/api/v1/session"
+	"gophr/api/v1/user"
 	"time"
 )
 
@@ -17,13 +18,16 @@ type FreeCache struct {
 	cache *freecache.Cache
 }
 
-func (f *FreeCache) Get(id string) (*model.Session, error) {
+func (f *FreeCache) Get(id string) (*session.Session, error) {
 	res, err := f.cache.Get([]byte(id))
 	if err != nil {
+		if err == freecache.ErrNotFound {
+			return nil, user.ErrorNotFound
+		}
 		return nil, err
 	}
 
-	var sess model.Session
+	var sess session.Session
 
 	err = json.Unmarshal(res, &sess)
 	if err != nil {
@@ -33,7 +37,7 @@ func (f *FreeCache) Get(id string) (*model.Session, error) {
 	return &sess, nil
 }
 
-func (f *FreeCache) Set(id string, sess *model.Session, seconds time.Duration) error {
+func (f *FreeCache) Set(id string, sess *session.Session, seconds time.Duration) error {
 
 	payload, err := json.Marshal(sess)
 	if err != nil {

@@ -4,6 +4,11 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"gophr/api/v1/session"
+	"gophr/api/v1/session/cache/freecache"
+	"gophr/api/v1/user"
+	"gophr/api/v1/user/repository/file"
+	"gophr/api/v1/user/service"
 	"gophr/api/v1/user/web"
 	"gophr/api/v2"
 	"gophr/middleware"
@@ -25,6 +30,11 @@ var debug bool
 
 const AppName = "Gophr"
 
+var (
+	userService user.Service
+	sessionCache session.Cache
+)
+
 func init() {
 	flag.StringVar(&port, "port", "8080", "Port of the application")
 	flag.StringVar(&host, "host", "127.0.0.1", "Host of the application")
@@ -36,6 +46,11 @@ func init() {
 		golog.Warning("DEBUGGING MODE!")
 		golog.SetLevel(golog.DebugLevel)
 	}
+
+	userRepo := file.New("user.db")
+	userService = service.New(userRepo)
+
+	sessionCache = freecache.New()
 }
 
 func main() {
@@ -47,8 +62,7 @@ func main() {
 	apiRouter := router.PathPrefix("/api").Subrouter()
 
 	// API version 1
-	apiRouterV1 := web.RegisterHandlers(apiRouter); _ = apiRouterV1
-	//apiRouterV1.Use(middleware.AuthenticateMiddleware)
+	web.RegisterHandlers(apiRouter, userService, sessionCache)
 
 	// API version 2
 	v2.RegisterHandlers(apiRouter)
