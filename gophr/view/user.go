@@ -1,7 +1,8 @@
 package view
 
-import "net/http"
+import (
+	"gophr/api/v1/session"
+	"gophr/api/v1/user"
+	"net/http"
+)
 
-func UserNewViewHandler(w http.ResponseWriter, r *http.Request) {
-	RenderTemplate(w, r, "users/new", nil)
-}

@@ -25,7 +25,7 @@ type Handler struct {
 func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 	usr, err := model.NewUser(r.FormValue("username"), r.FormValue("email"), r.FormValue("password"))
 	if err != nil {
-		view.RenderTemplate(w, r, "users/new", map[string]interface{}{
+		view.RenderTemplate(w, r, h.svc, h.sessionCache,"users/new", map[string]interface{}{
 			"Error": err.Error(),
 			"User": usr,
 		})
@@ -45,7 +45,7 @@ func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 		}
 
 
-		view.RenderTemplate(w, r, "users/new", map[string]interface{}{
+		view.RenderTemplate(w, r, h.svc, h.sessionCache,"users/new", map[string]interface{}{
 			"Error": msg.Apply(),
 			"User": usr,
 		})
@@ -57,7 +57,7 @@ func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 
 	err = h.sessionCache.Set(sess.ID, sess, session.Duration*60*60) // 8 hours in seconds
 	if err != nil {
-		view.RenderTemplate(w, r, "users/new", map[string]interface{}{
+		view.RenderTemplate(w, r, h.svc, h.sessionCache,"users/new", map[string]interface{}{
 			"Error": err.Error(),
 			"User": usr,
 		})

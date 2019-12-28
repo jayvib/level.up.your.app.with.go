@@ -27,7 +27,7 @@ func GetRequestSession(c Cache, r *http.Request) (*Session, error) {
 	return val, nil
 }
 
-func GetUserFromSession(userRepo user.Repository, c Cache, r *http.Request) *model.User {
+func GetUserFromSession(userRepo user.Service, c Cache, r *http.Request) *model.User {
 		sess, err := GetRequestSession(c, r)
 		if err != nil {
 			return nil

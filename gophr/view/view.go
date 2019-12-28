@@ -4,6 +4,9 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/jayvib/golog"
+	"gophr/api/v1/session"
+	"gophr/api/v1/user"
 	"html/template"
 	"net/http"
 )
@@ -35,15 +38,28 @@ var errorTemplate = `
 	</body>
 </html>`
 
-func RegisterHandlers(r *mux.Router) *mux.Router {
+func RegisterHandlers(r *mux.Router, userService user.Service, cache session.Cache) *mux.Router {
 	subrouter := r.PathPrefix("/").Subrouter()
 	subrouter.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
-	subrouter.HandleFunc("/", HomeViewHandler).Methods(http.MethodGet)
-	subrouter.HandleFunc("/register", UserNewViewHandler).Methods(http.MethodGet)
+	subrouter.HandleFunc("/", HomeViewHandler(userService, cache)).Methods(http.MethodGet)
+	subrouter.HandleFunc("/register", UserNewViewHandler(userService, cache)).Methods(http.MethodGet)
 	return subrouter
 }
 
-func RenderTemplate(w http.ResponseWriter, r *http.Request, name string, data interface{}) {
+func UserNewViewHandler(svc user.Service, cache session.Cache) http.HandlerFunc{
+	return func(w http.ResponseWriter, r *http.Request){
+		RenderTemplate(w, r, svc, cache,"users/new", nil)
+	}
+}
+
+func RenderTemplate(w http.ResponseWriter, r *http.Request, userService user.Service, sessionCache session.Cache,name string, data map[string]interface{}) {
+	golog.Debug("Query:", r.URL.Query())
+	if data == nil {
+		data = make(map[string]interface{})
+	}
+
+	data["CurrentUser"] = session.GetUserFromSession(userService, sessionCache, r)
+	data["Flash"] = r.URL.Query().Get("flash")
 
 	// create a custom func map
 	funcs := template.FuncMap{
@@ -67,7 +83,10 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, name string, data in
 	}
 }
 
-func HomeViewHandler(w http.ResponseWriter, r *http.Request) {
-	RenderTemplate(w, r, "index/home", map[string]string{"title": AppName})
+
+func HomeViewHandler(service user.Service, sessionCache session.Cache) http.HandlerFunc{
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+		RenderTemplate(w, r, service, sessionCache, "index/home", map[string]interface{}{"title": AppName})
+	})
 }
 

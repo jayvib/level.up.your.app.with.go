@@ -57,7 +57,7 @@ func main() {
 	router := mux.NewRouter()
 
 	router.Use(middleware.LoggingMiddleware)
-	view.RegisterHandlers(router)
+	view.RegisterHandlers(router, userService, sessionCache)
 
 	apiRouter := router.PathPrefix("/api").Subrouter()
 
