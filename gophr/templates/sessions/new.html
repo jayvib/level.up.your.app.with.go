@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gophr</title>
+  <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+</head>
+<body>
+  {{ define "sessions/new" }}
+    <div class="col-md-6 col-md-offset-3">
+        <h1>Sign In</h1>
+        {{ if .Error }}
+            <p class="text-danger">
+                {{ .Error }}
+            </p>
+        {{ end }}
+        <form action="/api/v1/login" method="post">
+            <div class="form-group">
+               <label for="username">Username</label>
+               <input type="text" id="username" name="username" value="{{ .User.Username }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="username" class="form-control">
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary">
+            <input type="hidden" name="next" value="{{ .Next }}">
+        </form>
+    </div>
+  {{ end }}
+</body>
+</html>

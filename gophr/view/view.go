@@ -43,6 +43,7 @@ func RegisterHandlers(r *mux.Router, userService user.Service, cache session.Cac
 	subrouter.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
 	subrouter.HandleFunc("/", HomeViewHandler(userService, cache)).Methods(http.MethodGet)
 	subrouter.HandleFunc("/register", UserNewViewHandler(userService, cache)).Methods(http.MethodGet)
+	subrouter.HandleFunc("/login", LoginPage(userService, cache)).Methods(http.MethodGet)
 	return subrouter
 }
 
@@ -83,10 +84,15 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, userService user.Ser
 	}
 }
 
-
 func HomeViewHandler(service user.Service, sessionCache session.Cache) http.HandlerFunc{
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
 		RenderTemplate(w, r, service, sessionCache, "index/home", map[string]interface{}{"title": AppName})
 	})
+}
+
+func LoginPage(service user.Service, sessionCache session.Cache) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		RenderTemplate(w, r, service, sessionCache, "users/login", map[string]interface{}{})
+	}
 }
 

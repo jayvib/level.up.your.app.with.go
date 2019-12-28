@@ -12,22 +12,22 @@ import (
 
 func New(svc user.Service, cache session.Cache) *Handler {
 	return &Handler{
-		svc: svc,
+		svc:          svc,
 		sessionCache: cache,
 	}
 }
 
 type Handler struct {
-	svc user.Service
+	svc          user.Service
 	sessionCache session.Cache
 }
 
 func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 	usr, err := model.NewUser(r.FormValue("username"), r.FormValue("email"), r.FormValue("password"))
 	if err != nil {
-		view.RenderTemplate(w, r, h.svc, h.sessionCache,"users/new", map[string]interface{}{
+		view.RenderTemplate(w, r, h.svc, h.sessionCache, "users/new", map[string]interface{}{
 			"Error": err.Error(),
-			"User": usr,
+			"User":  usr,
 		})
 		return
 	}
@@ -44,10 +44,9 @@ func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 			msg.AddName("EmailExists")
 		}
 
-
-		view.RenderTemplate(w, r, h.svc, h.sessionCache,"users/new", map[string]interface{}{
+		view.RenderTemplate(w, r, h.svc, h.sessionCache, "users/new", map[string]interface{}{
 			"Error": msg.Apply(),
-			"User": usr,
+			"User":  usr,
 		})
 		return
 	}
@@ -57,13 +56,13 @@ func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 
 	err = h.sessionCache.Set(sess.ID, sess, session.Duration*60*60) // 8 hours in seconds
 	if err != nil {
-		view.RenderTemplate(w, r, h.svc, h.sessionCache,"users/new", map[string]interface{}{
+		view.RenderTemplate(w, r, h.svc, h.sessionCache, "users/new", map[string]interface{}{
 			"Error": err.Error(),
-			"User": usr,
+			"User":  usr,
 		})
 		return
 	}
 
-	golog.Debugf("%#v\n",usr)
+	golog.Debugf("%#v\n", usr)
 	http.Redirect(w, r, "/?flash=User+created", http.StatusFound)
 }
