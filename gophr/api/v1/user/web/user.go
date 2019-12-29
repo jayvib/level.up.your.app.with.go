@@ -10,6 +10,12 @@ import (
 	"net/http"
 )
 
+type Response struct {
+	Message string      `json:"message,omitempty"`
+	Data    interface{} `json:"data,omitempty"`
+	Method  string      `json:"method,omitempty"`
+}
+
 func New(svc user.Service, cache session.Cache) *Handler {
 	return &Handler{
 		svc:          svc,
@@ -54,7 +60,7 @@ func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 	sess := session.NewSession(w)
 	sess.UserID = usr.ID
 
-	err = h.sessionCache.Set(sess.ID, sess, session.Duration*60*60) // 8 hours in seconds
+	err = h.sessionCache.Set(sess.ID, sess, session.DurationInSecond) // 8 hours in seconds
 	if err != nil {
 		view.RenderTemplate(w, r, h.svc, h.sessionCache, "users/new", map[string]interface{}{
 			"Error": err.Error(),

@@ -14,6 +14,8 @@ func RegisterHandlers(r *mux.Router, svc user.Service, cache session.Cache) *mux
 	// Unsecured router
 	subrouter := r.PathPrefix("/v1").Subrouter()
 	subrouter.HandleFunc("/register", h.CreateUser).Methods(http.MethodPost)
+	subrouter.HandleFunc("/login", h.Login).Methods(http.MethodPost)
+	subrouter.HandleFunc("/logout", h.Logout).Methods(http.MethodPost)
 
 	// with authentication middleware
 	securedSubrouter := r.PathPrefix("/v1").Subrouter()

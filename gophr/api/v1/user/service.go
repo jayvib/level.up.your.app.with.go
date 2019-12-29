@@ -10,4 +10,5 @@ type Service interface {
 	GetByEmail(ctx context.Context, id string) (*model.User, error)
 	GetByUsername(ctx context.Context, uname string) (*model.User, error)
 	Save(ctx context.Context, user *model.User) error
+	GetAndComparePassword(ctx context.Context, username, password string) (*model.User, error)
 }

@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+	"github.com/jayvib/golog"
 	"golang.org/x/crypto/bcrypt"
 	"gophr/api/v1"
 	"gophr/api/v1/user"
@@ -32,7 +33,7 @@ func(s *Service) Save(ctx context.Context, usr *model.User) error {
 	return s.repo.Save(ctx, usr)
 }
 
-func (s *Service) GetAndCompareUserPassword(ctx context.Context, username, password string) (*model.User, error) {
+func (s *Service) GetAndComparePassword(ctx context.Context, username, password string) (*model.User, error) {
 	// Get the users information
 	usr, err := s.repo.GetByUsername(ctx, username)
 	if err != nil {
@@ -40,11 +41,14 @@ func (s *Service) GetAndCompareUserPassword(ctx context.Context, username, passw
 	}
 
 	// compare the password
-	err := bcrypt.CompareHashAndPassword([]byte(usr.Password), []byte(password))
+	golog.Debug(username)
+	golog.Debug(password)
+	err = bcrypt.CompareHashAndPassword([]byte(usr.Password), []byte(password))
 	if err != nil {
+		golog.Debug(err)
 		// if not match then return ErrorCredential
 		if err == bcrypt.ErrMismatchedHashAndPassword {
-			return nil, v1.ErrorCredentials
+			return nil, v1.ErrorInvalidCredentials
 		}
 		return nil, err
 	}

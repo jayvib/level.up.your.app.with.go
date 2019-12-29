@@ -59,7 +59,10 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, userService user.Ser
 		data = make(map[string]interface{})
 	}
 
-	data["CurrentUser"] = session.GetUserFromSession(userService, sessionCache, r)
+	currentUser := session.GetUserFromSession(userService, sessionCache, r)
+	golog.Debug(currentUser)
+	data["CurrentUser"] = currentUser
+
 	data["Flash"] = r.URL.Query().Get("flash")
 
 	// create a custom func map
@@ -92,7 +95,7 @@ func HomeViewHandler(service user.Service, sessionCache session.Cache) http.Hand
 
 func LoginPage(service user.Service, sessionCache session.Cache) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		RenderTemplate(w, r, service, sessionCache, "users/login", map[string]interface{}{})
+		RenderTemplate(w, r, service, sessionCache, "sessions/login", map[string]interface{}{})
 	}
 }
 

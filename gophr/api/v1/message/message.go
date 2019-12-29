@@ -8,6 +8,8 @@ import (
 var msgEn = `
 {{ define "UsernameExists"}} Username already exists {{ end }}
 {{ define "EmailExists"}} Email already exists {{ end }}
+{{ define "InvalidCredential" }} Incorrect username/password {{ end }}
+{{ define "UserNotRegistered" }} Username is not registered yet {{ end }}
 `
 
 func New(language string) *Message {
