@@ -23,7 +23,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/view.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-292">
+              <caret line="51" column="49" lean-forward="true" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -120,97 +130,6 @@
               <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
               <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
               <item name="gophr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="sessions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="gophr" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="w3schools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -646,17 +565,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/view.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/v1/session/cache/freecache/memcache.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/view.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-292">
+          <caret line="51" column="49" lean-forward="true" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
         </state>
       </provider>
     </entry>
