@@ -9,5 +9,6 @@ require (
 	github.com/gorilla/mux v1.7.3
 	github.com/jayvib/golog v0.0.0-20191101112258-451da415b73f
 	github.com/rs/xid v1.2.1
+	github.com/stretchr/testify v1.4.0
 	golang.org/x/crypto v0.0.0-20191219195013-becbf705a915
 )
