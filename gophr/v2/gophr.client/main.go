@@ -3,21 +3,22 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/gorilla/mux"
-	"github.com/jayvib/golog"
 	"html/template"
 	"log"
 	"net/http"
+
+	"github.com/gorilla/mux"
+	"github.com/jayvib/golog"
 )
 
 var (
-	port string
-	host string
+	port  string
+	host  string
 	debug bool
 )
 
 var (
-	templates *template.Template
+	templates      *template.Template
 	layoutTemplate *template.Template
 )
 
@@ -57,7 +58,7 @@ func main() {
 	router.HandleFunc("/signup", Signup).Methods(http.MethodGet)
 	router.HandleFunc("/login", Login).Methods(http.MethodGet)
 	addr := fmt.Sprintf("%s:%s", host, port)
-	golog.Info("Listening to",addr)
+	golog.Info("Listening to", addr)
 	if err := http.ListenAndServe(addr, router); err != nil {
 		log.Fatal(err)
 	}

@@ -41,13 +41,10 @@ type Handler struct {
 
 func (h *Handler) GetByID(w http.ResponseWriter, r *http.Request)       {
 	vars := mux.Vars(r)
-	golog.Debug("vars:", vars)
 	userId := vars["id"]
-	golog.Debug("id:", userId)
 
 	usr, _ := h.svc.GetByID(r.Context(), userId)
 
-	golog.Debug("user:", usr)
 	response := &Response{
 		Message: "OK",
 		Data: usr,

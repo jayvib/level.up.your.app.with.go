@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c73f383-26eb-4166-a1c7-07eb7f23b298" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/v2/gophr.api/errors.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.api/user/repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.api/user/repository/file/repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.api/user/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.api/user/service/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.api/user/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.api/user/web/web.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.api/user/web/web_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.client/assets/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.client/templates/misc/error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.client/templates/session/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.client/templates/user/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/gophr.client/web.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/gophr.api/cmd/gophr.api/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/cmd/gophr.client/assets/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/v2/gophr.client/assets/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/cmd/gophr.client/gophr.client" beforeDir="false" afterPath="$PROJECT_DIR$/v2/gophr.client/gophr.client" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/cmd/gophr.client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/gophr.client/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/cmd/gophr.client/templates/index/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/v2/gophr.client/templates/index/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/cmd/gophr.client/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/v2/gophr.client/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/cmd/gophr.client/web.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/gophr.api/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/gophr.api/user/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/gophr.api/user/web/web.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/gophr.api/user/web/web.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/gophr.api/user/web/web_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/gophr.api/user/web/web_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,18 +17,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/v2/gophr.client/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="56" column="43" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/service/service.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
+            <state relative-caret-position="337">
               <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
               <folding>
                 <element signature="e#17#157#0" expanded="true" />
@@ -59,24 +33,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/v1/error.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/repository.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -96,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/web/web.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+            <state relative-caret-position="352">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="e#13#72#0" expanded="true" />
               </folding>
@@ -108,8 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/web/web_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="97">
+              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
               <folding>
                 <element signature="e#13#260#0" expanded="true" />
               </folding>
@@ -118,10 +74,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/v2/gophr.api/cmd/gophr.api/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/repository.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/go/src/net/http/httptest/recorder.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/user.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+            <state relative-caret-position="142">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -156,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/api/v1/session/repository.go" />
         <option value="$PROJECT_DIR$/api/v1/session/cache/memcache/memcache.go" />
         <option value="$PROJECT_DIR$/model/session.go" />
         <option value="$PROJECT_DIR$/api/v1/sess/session.go" />
@@ -200,21 +182,20 @@
         <option value="$PROJECT_DIR$/v2/cmd/gophr.client/templates/layout.html" />
         <option value="$PROJECT_DIR$/v2/cmd/gophr.client/templates/session/login.html" />
         <option value="$PROJECT_DIR$/v2/gophr.api/web/web.go" />
-        <option value="$PROJECT_DIR$/v2/gophr.api/user/user.go" />
         <option value="$PROJECT_DIR$/v2/gophr.api/user/repository.go" />
         <option value="$PROJECT_DIR$/v2/gophr.api/errors.go" />
         <option value="$PROJECT_DIR$/v2/gophr.api/user/service/service.go" />
         <option value="$PROJECT_DIR$/v2/gophr.api/user/service.go" />
+        <option value="$PROJECT_DIR$/v2/gophr.api/cmd/gophr.api/main.go" />
+        <option value="$PROJECT_DIR$/v2/gophr.api/user/user.go" />
         <option value="$PROJECT_DIR$/v2/gophr.api/user/web/web.go" />
         <option value="$PROJECT_DIR$/v2/gophr.api/user/web/web_test.go" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1404" />
-    <option name="y" value="27" />
-    <option name="width" value="1328" />
-    <option name="height" value="741" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -254,7 +235,33 @@
               <item name="gophr" type="462c0819:PsiDirectoryNode" />
               <item name="v2" type="462c0819:PsiDirectoryNode" />
               <item name="gophr.api" type="462c0819:PsiDirectoryNode" />
+              <item name="cmd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="gophr" type="462c0819:PsiDirectoryNode" />
+              <item name="v2" type="462c0819:PsiDirectoryNode" />
+              <item name="gophr.api" type="462c0819:PsiDirectoryNode" />
+              <item name="cmd" type="462c0819:PsiDirectoryNode" />
+              <item name="gophr.api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="gophr" type="462c0819:PsiDirectoryNode" />
+              <item name="v2" type="462c0819:PsiDirectoryNode" />
+              <item name="gophr.api" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="gophr" type="462c0819:PsiDirectoryNode" />
+              <item name="v2" type="462c0819:PsiDirectoryNode" />
+              <item name="gophr.api" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
@@ -273,6 +280,13 @@
               <item name="gophr.api" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gophr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gophr" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="gophr" type="462c0819:PsiDirectoryNode" />
+              <item name="v2" type="462c0819:PsiDirectoryNode" />
+              <item name="gophr.client" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -374,14 +388,14 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1404" y="27" width="1328" height="741" extended-state="6" />
+    <frame x="38" y="27" width="1328" height="741" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21728972" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" x="27" y="194" width="1288" height="463" id="Run" order="2" type="WINDOWED" visible="true" weight="0.3295082" />
+      <window_info anchor="bottom" x="38" y="194" width="1288" height="463" id="Run" order="2" type="WINDOWED" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -389,7 +403,7 @@
       <window_info anchor="bottom" id="Docker" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" x="203" y="292" width="1048" height="372" id="Terminal" order="10" sideWeight="0.49922118" type="WINDOWED" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" x="198" y="304" width="1058" height="365" id="Terminal" order="10" sideWeight="0.49922118" type="WINDOWED" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007788" side_tool="true" weight="0.3295082" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -417,23 +431,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/user.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/v1/message/message.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#17#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/v1/user/service.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -704,13 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/repository.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/v1/error.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -725,23 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/user.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/service/service.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
-          <folding>
-            <element signature="e#17#157#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/repository/file/repository.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -749,13 +722,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/web/web.go">
+    <entry file="file:///usr/local/go/src/net/http/httptest/recorder.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
-          <folding>
-            <element signature="e#13#72#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="330">
+          <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v2/gophr.api/cmd/gophr.api/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/user.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/repository.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -769,10 +760,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/service/service.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+          <folding>
+            <element signature="e#17#157#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/web/web.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="e#13#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/v2/gophr.api/user/web/web_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="97">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
           <folding>
             <element signature="e#13#260#0" expanded="true" />
           </folding>
