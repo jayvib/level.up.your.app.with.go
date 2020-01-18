@@ -58,7 +58,19 @@ func (h *Handler) GetByID(w http.ResponseWriter, r *http.Request)       {
 	}
 
 }
-func (h *Handler) GetByEmail(w http.ResponseWriter, r *http.Request)    {}
+func (h *Handler) GetByEmail(w http.ResponseWriter, r *http.Request)    {
+	v := mux.Vars(r)
+	golog.Debug("Email:", v["email"])
+	email := v["email"]
+	res, _ := h.svc.GetByEmail(r.Context(), email) // TODO: Handle the error
+
+	err := json.NewEncoder(w).Encode(res)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.WriteHeader(http.StatusAccepted)
+}
 func (h *Handler) GetByUsername(w http.ResponseWriter, r *http.Request) {}
 func (h *Handler) Save(w http.ResponseWriter, r *http.Request)          {}
 func (h *Handler) Login(w http.ResponseWriter, r *http.Request)         {}

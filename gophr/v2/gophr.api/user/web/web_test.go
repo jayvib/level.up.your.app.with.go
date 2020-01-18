@@ -101,6 +101,31 @@ func TestHandle_GetByID(t *testing.T) {
 	})
 }
 
+func TestHandler_GetByEmail(t *testing.T) {
+	svc := new(mocks.Service)
+	mockReturn := &user.User{
+		ID:       "mock1",
+		Username: "luffy.monkey",
+		Email:    "luffy.monkey@gmail.com",
+		Password: "1234567890",
+	}; _ = mockReturn
+
+	svc.On("GetByEmail", mock.Anything, mock.AnythingOfType("string")).Return(mockReturn, nil).Once()
+	param := &Parameters{
+		UserService: svc,
+	}
+	h := New(param)
+	router := mux.NewRouter()
+	router.HandleFunc("/user/email/{email}", h.GetByEmail).Methods(http.MethodGet)
+	resp := performRequest(router, http.MethodGet,"/user/email/luffy.monkey%40gmail.com", nil)
+	assert.Equal(t, http.StatusOK, resp.Code)
+
+	var got user.User
+	err := json.NewDecoder(resp.Body).Decode(&got)
+	assert.NoError(t, err)
+	assert.Equal(t, mockReturn, &got)
+}
+
 func assertGetByIDResponse(t *testing.T, want responseTest, w *httptest.ResponseRecorder) {
 	assert.Equal(t, http.StatusOK, w.Code)
 
@@ -126,7 +151,7 @@ func assertGetByIDNotFound(t *testing.T, want responseTest, w *httptest.Response
 }
 
 func performRequest(h http.Handler, method string, path string, body io.Reader) *httptest.ResponseRecorder {
-	req := httptest.NewRequest(http.MethodGet, "/users/mock1", nil)
+	req := httptest.NewRequest(http.MethodGet, path, nil)
 	w := httptest.NewRecorder()
 	h.ServeHTTP(w, req)
 	return w
