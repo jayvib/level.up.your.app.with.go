@@ -42,35 +42,34 @@ type Handler struct {
 func (h *Handler) GetByID(w http.ResponseWriter, r *http.Request)       {
 	vars := mux.Vars(r)
 	userId := vars["id"]
-
 	usr, _ := h.svc.GetByID(r.Context(), userId)
-
-	response := &Response{
-		Message: "OK",
-		Data: usr,
-		Method: r.Method,
-	}
-
-	w.WriteHeader(http.StatusOK)
-	err := json.NewEncoder(w).Encode(response)
-	if err != nil {
-		golog.Error(err)
-	}
-
+	h.writeResponse(w, r, "OK", usr, http.StatusOK)
 }
+
 func (h *Handler) GetByEmail(w http.ResponseWriter, r *http.Request)    {
 	v := mux.Vars(r)
 	golog.Debug("Email:", v["email"])
 	email := v["email"]
 	res, _ := h.svc.GetByEmail(r.Context(), email) // TODO: Handle the error
+	h.writeResponse(w, r, "OK", res, http.StatusOK)
+}
 
-	err := json.NewEncoder(w).Encode(res)
+func (h *Handler) writeResponse(w http.ResponseWriter, r *http.Request, message string, data interface{}, code int) {
+	resp := &Response{
+		Data: data,
+		Message: message,
+		Method: r.Method,
+	}
+
+	err := json.NewEncoder(w).Encode(resp)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		golog.Errorf("error while encoding json to the http writer: %v", err.Error())
 		return
 	}
-	w.WriteHeader(http.StatusAccepted)
+	w.WriteHeader(code)
 }
+
 func (h *Handler) GetByUsername(w http.ResponseWriter, r *http.Request) {}
 func (h *Handler) Save(w http.ResponseWriter, r *http.Request)          {}
 func (h *Handler) Login(w http.ResponseWriter, r *http.Request)         {}

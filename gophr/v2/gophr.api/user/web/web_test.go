@@ -63,7 +63,7 @@ func TestHandle_GetByID(t *testing.T) {
 		router.HandleFunc("/users/{id}", h.GetByID).Methods(http.MethodGet)
 
 		w := performRequest(router, http.MethodGet, "/users/mock1", nil)
-		assertGetByIDResponse(t, want, w)
+		assertResponse(t, want, w)
 		service.AssertExpectations(t)
 	})
 
@@ -95,7 +95,7 @@ func TestHandle_GetByID(t *testing.T) {
 		router.HandleFunc("/users/{id}", h.GetByID).Methods(http.MethodGet)
 
 		w := performRequest(router, http.MethodGet, "/users/mock1", nil)
-		assertGetByIDResponse(t, want, w)
+		assertResponse(t, want, w)
 		service.AssertExpectations(t)
 
 	})
@@ -119,23 +119,20 @@ func TestHandler_GetByEmail(t *testing.T) {
 	router.HandleFunc("/user/email/{email}", h.GetByEmail).Methods(http.MethodGet)
 	resp := performRequest(router, http.MethodGet,"/user/email/luffy.monkey%40gmail.com", nil)
 	assert.Equal(t, http.StatusOK, resp.Code)
-
-	var got user.User
-	err := json.NewDecoder(resp.Body).Decode(&got)
-	assert.NoError(t, err)
-	assert.Equal(t, mockReturn, &got)
+	want := responseTest{
+		Data: mockReturn,
+		Message: "OK",
+		Method: http.MethodGet,
+	}
+	assertResponse(t, want, resp)
 }
 
-func assertGetByIDResponse(t *testing.T, want responseTest, w *httptest.ResponseRecorder) {
+func assertResponse(t *testing.T, want responseTest, w *httptest.ResponseRecorder) {
 	assert.Equal(t, http.StatusOK, w.Code)
-
 	var got responseTest
-
 	err := json.NewDecoder(w.Body).Decode(&got)
 	assert.NoError(t, err)
-
 	assert.Equal(t, want, got)
-
 }
 
 func assertGetByIDNotFound(t *testing.T, want responseTest, w *httptest.ResponseRecorder) {
